@@ -17,7 +17,7 @@ Easily deploy a Steam Docker instance in seconds.
 - Full controller support
 - Support for Flatpak and Appimage installation
 - Root access
-- Based on Debian Bookworm
+- Based on Debian Trixie
 
 ---
 ## Notes:
