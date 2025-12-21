@@ -1,0 +1,20 @@
+// Allow the default container user to perform administrative actions
+// This is needed for flatpak, GNOME Software, and other desktop integration
+
+polkit.addRule(function(action, subject) {
+    // Allow all actions for users with sudo privileges (NOPASSWD configured in Dockerfile)
+    if (subject.isInGroup("sudo") || subject.user == "default") {
+        return polkit.Result.YES;
+    }
+});
+
+polkit.addRule(function(action, subject) {
+    // Specifically allow flatpak and package management actions
+    if (action.id.indexOf("org.freedesktop.Flatpak") == 0 ||
+        action.id.indexOf("org.freedesktop.packagekit") == 0 ||
+        action.id.indexOf("org.freedesktop.Accounts") == 0) {
+        if (subject.user == "default") {
+            return polkit.Result.YES;
+        }
+    }
+});

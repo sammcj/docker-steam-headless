@@ -281,12 +281,18 @@ RUN \
     && \
     echo
 
-# Add support for flatpaks
+# Add support for flatpaks and D-Bus system services
 ENV \
     XDG_DATA_DIRS="/home/default/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/"
 RUN \
     echo "**** Update apt database ****" \
         && apt-get update \
+    && \
+    echo "**** Install D-Bus system services for desktop integration ****" \
+        && apt-get install -y --no-install-recommends \
+            accountsservice \
+            polkitd \
+            pkexec \
     && \
     echo "**** Install flatpak support ****" \
         && apt-get install -y --no-install-recommends \

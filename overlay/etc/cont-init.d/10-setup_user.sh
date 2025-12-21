@@ -22,7 +22,7 @@ groupmod -o -g "${PGID}" ${USER}
 
 
 print_step_header "Adding default user to any additional required device groups"
-additional_groups=( video audio input pulse )
+additional_groups=( video audio input pulse sudo )
 for group_name in "${additional_groups[@]}"; do
     if [ $(getent group ${group_name:?}) ]; then
         print_step_header "Adding user '${USER}' to group: '${group_name}'"

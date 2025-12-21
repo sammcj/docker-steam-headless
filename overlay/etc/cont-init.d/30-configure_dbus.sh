@@ -11,14 +11,13 @@ if ([ "${MODE}" != "s" ] && [ "${MODE}" != "secondary" ]); then
         print_step_header "Container configured to run its own dbus";
         # Enable supervisord script
         sed -i 's|^autostart.*=.*$|autostart=true|' /etc/supervisor.d/dbus.ini
-        # Configure dbus to run as USER
-        sed -i "/  <user>/c\  <user>${USER}</user>" /usr/share/dbus-1/system.conf
+        # Keep dbus running as root to allow system services (accountsservice, polkit) to work
+        # The default user is granted access via polkit rules
         # Remove old dbus session
         rm -rf ${USER_HOME}/.dbus/session-bus/* 2> /dev/null
         # Remove old dbus pids
         mkdir -p /var/run/dbus
-        chown -R ${PUID}:${PGID} /var/run/dbus/
-        chmod -R 770 /var/run/dbus/
+        chmod 755 /var/run/dbus/
         # Generate a dbus machine ID
         dbus-uuidgen > /var/lib/dbus/machine-id
         # Remove old lockfiles
