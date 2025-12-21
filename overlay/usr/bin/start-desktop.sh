@@ -25,6 +25,10 @@ rm -f /tmp/.started-desktop
 # Note: This script should be the only one that waits for X after exporting this dbus session
 rm -fv /tmp/.dbus-desktop-session.env
 export_desktop_dbus_session
+# Start accessibility registry for GTK applications (if available)
+if [ -x /usr/libexec/at-spi2-registryd ]; then
+    /usr/libexec/at-spi2-registryd &
+fi
 # Configure some XDG environment variables
 export XDG_CACHE_HOME="${USER_HOME:?}/.cache"
 export XDG_CONFIG_HOME="${USER_HOME:?}/.config"
@@ -33,6 +37,8 @@ export XDG_DATA_HOME="${USER_HOME:?}/.local/share"
 # EXECUTE PROCESS:
 # Wait for the X server to start
 wait_for_x
+# Allow local connections for DRI2/EGL authentication
+xhost +local: > /dev/null 2>&1 || true
 # Install/Upgrade user apps
 if [[ ! -f /tmp/.desktop-apps-updated ]]; then
     xterm -geometry 200x50+0+0 -ls -e /bin/bash -c "

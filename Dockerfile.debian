@@ -227,6 +227,7 @@ RUN \
     && \
     echo "**** Install desktop requirements ****" \
         && apt-get install -y --no-install-recommends \
+            at-spi2-core \
             libdbus-1-3 \
             libegl1 \
             libgtk-3-0 \
@@ -507,6 +508,29 @@ RUN \
     echo "**** Install Sunshine ****" \
         && apt-get install -y \
             /usr/src/sunshine.deb \
+    && \
+    echo "**** Section cleanup ****" \
+        && apt-get clean autoclean -y \
+        && apt-get autoremove -y \
+        && rm -rf \
+            /var/lib/apt/lists/* \
+            /var/tmp/* \
+            /tmp/* \
+    && \
+    echo
+
+# Install lsfg-vk (Lossless Scaling Frame Generation for Vulkan)
+# Requires Lossless Scaling from Steam to be installed
+RUN \
+    echo "**** Download latest lsfg-vk release ****" \
+        && LSFG_RELEASE=$(curl -sX GET "https://api.github.com/repos/PancakeTAS/lsfg-vk/releases/latest" | jq -r '.tag_name') \
+        && LSFG_URL=$(curl -sX GET "https://api.github.com/repos/PancakeTAS/lsfg-vk/releases/latest" | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url') \
+        && echo "Downloading lsfg-vk ${LSFG_RELEASE} from ${LSFG_URL}" \
+        && wget -O /tmp/lsfg-vk.deb "${LSFG_URL}" \
+    && \
+    echo "**** Install lsfg-vk ****" \
+        && apt-get update \
+        && apt-get install -y /tmp/lsfg-vk.deb \
     && \
     echo "**** Section cleanup ****" \
         && apt-get clean autoclean -y \
