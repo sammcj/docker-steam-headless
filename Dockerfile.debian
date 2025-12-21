@@ -582,6 +582,12 @@ ENV \
     NVIDIA_DRIVER_CAPABILITIES="all" \
     NVIDIA_VISIBLE_DEVICES="all"
 
+# GTK/EGL environment variables for NVIDIA container compatibility
+ENV \
+    GDK_BACKEND="x11" \
+    GSK_RENDERER="gl" \
+    __GLX_VENDOR_LIBRARY_NAME="nvidia"
+
 # Set container configuration environment variables
 # TODO: Set the default WEBUI_USER & WEBUI_PASS after release of SHUI
 ENV \

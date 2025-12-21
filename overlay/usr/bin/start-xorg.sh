@@ -39,6 +39,10 @@ fi
     +extension X-Resource \
     -extension XINERAMA -xinerama \
     +extension Composite +extension COMPOSITE \
+    +extension MIT-SHM \
+    +extension DRI \
+    +extension DRI2 \
+    +extension DRI3 \
     -dpms \
     -s off \
     -nolisten tcp \
