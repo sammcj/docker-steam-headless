@@ -4,6 +4,9 @@ print_header "Configure udevd"
 
 # Since this container may also be run with CAP_SYS_ADMIN, ensure we can actually execute "udevadm trigger"
 run_dumb_udev="false"
+# udevd creates /run/udev only once it starts (later, via supervisor). Pre-create
+# it here so the check below doesn't wrongly fall back to dumb-udev on first boot.
+mkdir -p /run/udev
 if [ ! -w /sys ]; then
     # Disable supervisord script since we are not able to write to sysfs
     print_step_header "Disable udevd - /sys is mounted RO"
