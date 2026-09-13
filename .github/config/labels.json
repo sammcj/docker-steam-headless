@@ -1,0 +1,187 @@
+[
+    {
+        "name": "COMPATIBILITY: broken",
+        "color": "D73A4A",
+        "description": "^(Not working)"
+    },
+    {
+        "name": "COMPATIBILITY: issues",
+        "color": "FBCA04",
+        "description": "^(Working with issues)"
+    },
+    {
+        "name": "COMPATIBILITY: partial",
+        "color": "E36209",
+        "description": "^(Partially working)"
+    },
+    {
+        "name": "COMPATIBILITY: working",
+        "color": "0E8A16",
+        "description": "^(Working: Fully functional)"
+    },
+    {
+        "name": "GPU: AMD",
+        "color": "ED1C24",
+        "description": "^(AMD)$"
+    },
+    {
+        "name": "GPU: Intel",
+        "color": "0071C5",
+        "description": "^(Intel)$"
+    },
+    {
+        "name": "GPU: NVIDIA",
+        "color": "76B900",
+        "description": "^(NVIDIA)$"
+    },
+    {
+        "name": "hacktoberfest-accepted",
+        "color": "F6EFA9",
+        "description": "Only available during Hacktoberfest"
+    },
+    {
+        "name": "invalid:duplicate",
+        "color": "cfdcfd",
+        "description": "This issue or pull request already exists"
+    },
+    {
+        "name": "invalid:pebcak",
+        "color": "cfdcfd",
+        "description": "This doesn't seem right.. (possible PICNIC)"
+    },
+    {
+        "name": "invalid:support",
+        "color": "cfdcfd",
+        "description": "This is a support request which belongs elsewhere"
+    },
+    {
+        "name": "invalid:template-incomplete",
+        "color": "cfdcfd",
+        "description": "Issue template is not complete"
+    },
+    {
+        "name": "MODE: Host",
+        "color": "5319E7",
+        "description": "^(Host)"
+    },
+    {
+        "name": "MODE: Macvlan",
+        "color": "0052CC",
+        "description": "^(Macvlan)"
+    },
+    {
+        "name": "OS: AlmaLinux",
+        "color": "1D76DB",
+        "description": "^(AlmaLinux)"
+    },
+    {
+        "name": "OS: CentOS Stream",
+        "color": "1D76DB",
+        "description": "^(CentOS Stream)"
+    },
+    {
+        "name": "OS: Debian",
+        "color": "1D76DB",
+        "description": "^(Debian)"
+    },
+    {
+        "name": "OS: Fedora Server",
+        "color": "1D76DB",
+        "description": "^(Fedora)"
+    },
+    {
+        "name": "OS: Red Hat Enterprise Linux",
+        "color": "1D76DB",
+        "description": "^(Red Hat Enterprise Linux|RHEL)"
+    },
+    {
+        "name": "OS: Rocky Linux",
+        "color": "1D76DB",
+        "description": "^(Rocky Linux)"
+    },
+    {
+        "name": "OS: TrueNAS SCALE",
+        "color": "1D76DB",
+        "description": "^(TrueNAS SCALE)"
+    },
+    {
+        "name": "OS: Ubuntu",
+        "color": "1D76DB",
+        "description": "^(Ubuntu)"
+    },
+    {
+        "name": "OS: Unraid",
+        "color": "1D76DB",
+        "description": "^(Unraid)"
+    },
+    {
+        "name": "priority:high",
+        "color": "FBCA04",
+        "description": "High priority issue"
+    },
+    {
+        "name": "priority:low",
+        "color": "FBCA04",
+        "description": "Low priority issue"
+    },
+    {
+        "name": "priority:medium",
+        "color": "FBCA04",
+        "description": "Medium priority issue"
+    },
+    {
+        "name": "state:added",
+        "color": "1EAA1E",
+        "description": "Feature has been added to the next release"
+    },
+    {
+        "name": "state:fixed",
+        "color": "1EAA1E",
+        "description": "Bug has been fixed in the next release"
+    },
+    {
+        "name": "state:stale",
+        "color": "AAAAAA",
+        "description": "Issue is inactive and pending closure"
+    },
+    {
+        "name": "state:wontfix",
+        "color": "FFFFFF",
+        "description": "This will not be worked on"
+    },
+    {
+        "name": "status:awaiting-triage",
+        "color": "9D509D",
+        "description": "Awaiting triage and review"
+    },
+    {
+        "name": "status:in-progress",
+        "color": "9D509D",
+        "description": "Work is currently in progress"
+    },
+    {
+        "name": "status:in-review",
+        "color": "9D509D",
+        "description": "Changes or report under review"
+    },
+    {
+        "name": "status:need-more-info",
+        "color": "9D509D",
+        "description": "Further details or reproduction steps required"
+    },
+    {
+        "name": "type:bug",
+        "color": "d73a4a",
+        "description": "Something isn't working"
+    },
+    {
+        "name": "type:compatibility",
+        "color": "0E8A16",
+        "description": "Hardware and OS compatibility reports and discussions"
+    },
+    {
+        "name": "type:feature-request",
+        "color": "a2eeef",
+        "description": "New feature or request for feature enhancement"
+    }
+]
